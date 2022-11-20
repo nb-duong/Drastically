@@ -1,4 +1,4 @@
-CREATE OR ALTER VIEW dbo.WhatsUpIndexes
+CREATE OR ALTER VIEW dbo.vm_whatsUpIndexes
 AS
 	SELECT TOP (2147483647)
 		view_name = 'WhatsUpIndexes',
