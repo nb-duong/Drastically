@@ -72,6 +72,7 @@ PAGE: https://red9.com/sql-performance-tuning/
     * A subquery became a Common Table Expression (CTE)
     * Using indexes to improve sort performance
     * Split a subquery into four parts using UNION
+    * Recommend used temp table (enable)
     * Replaced ISNULL function in WHERE clause
             SELECT SUM(Records)
             FROM 
