@@ -16,6 +16,10 @@ TAKE CARE
 * SET QUOTED_IDENTIFIER ON;
 * SET STATISTICS TIME, IO OFF;
 * INSERT INTO #PerfmonTable WITH(TABLOCK)
+
+* How do nested loop, hash, and merge joins work? Databases for Developers Performance #7
+    - https://youtu.be/pJWCwfv983Q
+
 Automatic tuning
     - https://learn.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver16
 
@@ -33,10 +37,19 @@ PAGE:
     8.The ORDER BY clause is mandatory in SQL if the sorted result set is expected
 
 PAGE: https://red9.com/sql-performance-tuning/
+    * FRIST_VALUES => CROSS APPLY (NOT ROW_NUMBER)
+    * FORCE INDEX JOIN
+        SELECT blah FROM TABLE1, TABLE2
+        WHERE TABLE2.ForiegnKeyID = TABLE1.ID
+        WITH (INDEX (index_name))
+
     * NOT IN => NOT EXISTS
     * USE CTE if possible
+    * USE tempdb if possible
     * USE UNION, UNION ALL if possible
-    * UPDATE STATISTICS
+    * UPDATE STATISTICS 
+        EXEC sp_updatestats;
+
     * CREATE NONCLUSTERED INDEX [IX_...] 
         ON [TABLE](... DESC/ ASC)
         INCLUDE(...)
